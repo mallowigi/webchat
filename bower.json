@@ -1,0 +1,16 @@
+{
+  "name": "pushServer",
+  "version": "0.1.0",
+  "description": "Yet another amazing AngularJS app",
+  "keywords": [
+    "angular"
+  ],
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "dependencies": {
+    "angular": "^1.3.0-beta.18"
+  }
+}
