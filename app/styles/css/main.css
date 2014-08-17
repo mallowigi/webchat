@@ -2,6 +2,10 @@
   font-family: 'Gotham Rounded A', 'Gotham Rounded B', sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 .chat_container {
   -moz-border-radius-topleft: 7px;
   -webkit-border-top-left-radius: 7px;

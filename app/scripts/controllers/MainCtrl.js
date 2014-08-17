@@ -1,10 +1,18 @@
 angular.module('wix.pushServer')
-  .controller('MainController', ['$scope', function ($scope) {
-    $scope.isShownForm = false;
+  .controller('MainController', ['$scope', '$window', function ($scope, $window) {
+    this.isShownForm = false;
+    var Wix = $window.Wix;
 
-    if (Wix) {
-      Wix.resizeWindow(450, 400);
-    }
+    $scope.$watch('main.isShownForm', function(newVal) {
+    	if (Wix && Wix.resizeWindow) {
+        if (newVal) {
+          Wix.resizeWindow(450, 400);
+        } else {
+          Wix.resizeWindow(450, 60);
+        }
+    	}
+    });
+
   }])
 ;
 
