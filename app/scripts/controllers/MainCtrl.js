@@ -1,6 +1,6 @@
 angular.module('wix.pushServer')
   .controller('MainController', ['$scope', '$window', function ($scope, $window) {
-    this.isShownForm = false;
+    this.isShownForm = true;
     var Wix = $window.Wix;
 
     $scope.$watch('main.isShownForm', function(newVal) {
