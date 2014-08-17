@@ -48,14 +48,15 @@
 
 <body ontouchstart ng-cloak>
 
-  <main ng-controller="MainController as main">
+  <main ng-controller="MainController">
 
-    <section id="push_section" ng-controller="PushMessageCtrl as push" ng-show="main.isShownForm" class="view chat_container">
+    <section id="push_section" ng-controller="PushMessageCtrl as push" ng-show="isShownForm" class="view chat_container">
       <span class="close">x</span>
 
-      <form id="textarea" name="postNotification" class="ui form" ng-submit="push.postMessage(); main.isShownForm = false">
-        <h3 class="ui left floated header title">Push Notification</h3>
-        <h5 class="ui floated right header sub_tilte">{{push.maxChars - push.notification.length}}</h5>
+      <form id="textarea" name="postNotification" class="ui form" ng-submit="push.postMessage(); isShownForm = false">
+        <h3 class="ui left floated header title">Push Message</h3>
+        <span class="ui floated right header counter">{{push.maxChars - push.notification.length}}</span>
+        <h5 class="ui floated right header sub_tilte">Please fill the form below</h5>
 
         <div class="field">
           <textarea name="notification" id="notification" cols="30" rows="10" placeholder="Enter your notification message here..."
@@ -68,12 +69,13 @@
 
     </section>
 
-    <section id="start_section" ng-hide="main.isShownForm" class="view">
-      <button class="ui button" ng-click="main.isShownForm = true">Write a Notification</button>
+    <section id="start_section" ng-hide="isShownForm" class="view">
+      <button class="ui button" ng-click="isShownForm = true">Write a Notification</button>
     </section>
 
   </main>
 
+  <script type="text/javascript" src="//sslstatic.wix.com/services/js-sdk/1.35.0/js/Wix.js"></script>
   <!-- build:js scripts/components.min.js -->
   <!-- bower:js -->
   <script src="bower_components/angular/angular.js"></script>
