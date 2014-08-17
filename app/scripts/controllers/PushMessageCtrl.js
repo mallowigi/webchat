@@ -4,7 +4,11 @@ angular.module('wix.pushServer')
     this.notification = '';
     this.maxChars = maxChars;
 
-
+    this.postMessage = function(){
+      // do ajax here
+      alert(this.notification);
+      this.notification = '';
+    }
   }])
 ;
 

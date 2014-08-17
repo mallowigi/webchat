@@ -52,19 +52,20 @@
 
     <section id="push_section" ng-controller="PushMessageCtrl as push" ng-show="main.isShownForm" class="view chat_container">
       <span class="close">x</span>
-         <form id="textarea" name="postNotification" class="ui form">
-           <h3 class="ui left floated header title">Push Notification</h3>
-           <h5 class="ui floated right header sub_tilte">{{push.maxChars - push.notification.length}}</h5>
-       
-           <div class="field">
-             <textarea name="notification" id="notification" cols="30" rows="10" placeholder="Enter your notification message here..."
-                       ng-model="push.notification" max-length-block="push.maxChars">
-             </textarea>
-           </div>
 
-           <button class="ui button right floated">Send</button>
-         </form>
-        
+      <form id="textarea" name="postNotification" class="ui form" ng-submit="push.postMessage(); main.isShownForm = false">
+        <h3 class="ui left floated header title">Push Notification</h3>
+        <h5 class="ui floated right header sub_tilte">{{push.maxChars - push.notification.length}}</h5>
+
+        <div class="field">
+          <textarea name="notification" id="notification" cols="30" rows="10" placeholder="Enter your notification message here..."
+                    ng-model="push.notification" max-length-block="push.maxChars">
+          </textarea>
+        </div>
+
+        <button class="ui button right floated">Send</button>
+      </form>
+
     </section>
 
     <section id="start_section" ng-hide="main.isShownForm" class="view">
