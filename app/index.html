@@ -48,23 +48,32 @@
 
 <body ontouchstart ng-cloak>
 
-  <main ng-controller="PushMessageCtrl as push">
-    <form id="textarea" name="postNotification" class="ui form">
-      <div class="field">
-        <h3 class="ui left floated header">Push Notification</h3>
-        <h5 class="ui floated right header">{{push.maxChars - push.notification.length}}</h5>
-        <textarea name="notification" id="notification" cols="30" rows="10" placeholder="Enter your notification message here..."
-                  ng-model="push.notification" max-length-block="push.maxChars">
-        </textarea>
-      </div>
+  <main ng-controller="MainController as main">
 
-      <button class="ui button right floated">Send</button>
-    </form>
+    <section id="push_section" ng-controller="PushMessageCtrl as push" ng-show="main.isShownForm" class="view">
+      <form id="textarea" name="postNotification" class="ui form">
+        <div class="field">
+          <h3 class="ui left floated header">Push Notification</h3>
+          <h5 class="ui floated right header">{{push.maxChars - push.notification.length}}</h5>
+          <textarea name="notification" id="notification" cols="30" rows="10" placeholder="Enter your notification message here..."
+                    ng-model="push.notification" max-length-block="push.maxChars">
+          </textarea>
+        </div>
+
+        <button class="ui button right floated">Send</button>
+      </form>
+    </section>
+
+    <section id="start_section" ng-hide="main.isShownForm" class="view">
+      <button class="ui button" ng-click="main.isShownForm = true">Write a Notification</button>
+    </section>
+
   </main>
 
   <!-- build:js scripts/components.min.js -->
   <!-- bower:js -->
   <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
   <!-- endbower -->
 
   <!-- endbuild -->
@@ -72,6 +81,8 @@
   <!-- build:js scripts/app.min.js -->
   <script src="scripts/app.js"></script>
   <script src="scripts/controllers/PushMessageCtrl.js"></script>
+  <script src="scripts/controllers/MainCtrl.js"></script>
+
   <script src="scripts/directives/maxLengthBlock.js"></script>
 
   <!-- endbuild -->
