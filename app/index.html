@@ -54,7 +54,7 @@
         <h3 class="ui left floated header">Push Notification</h3>
         <h5 class="ui floated right header">{{push.maxChars - push.notification.length}}</h5>
         <textarea name="notification" id="notification" cols="30" rows="10" placeholder="Enter your notification message here..."
-                  ng-model="push.notification">
+                  ng-model="push.notification" max-length-block="push.maxChars">
         </textarea>
       </div>
 
@@ -71,7 +71,7 @@
 
   <!-- build:js scripts/app.min.js -->
   <script src="scripts/app.js"></script>
-  <script src="scripts/controllers/main.js"></script>
+  <script src="scripts/controllers/PushMessageCtrl.js"></script>
   <!-- endbuild -->
 
 </body>

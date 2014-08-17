@@ -3,6 +3,8 @@ angular.module('wix.pushServer')
     'use strict';
     this.notification = '';
     this.maxChars = maxChars;
+
+
   }])
 ;
 
