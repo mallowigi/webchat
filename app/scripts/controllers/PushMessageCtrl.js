@@ -28,7 +28,7 @@ angular.module('wix.pushServer')
         pushCtrl.sendingState.isSending = true;
         pushCtrl.sendingState.message = 'Sending...';
         // do ajax here
-        $http.post(serverUrl, {notification: pushCtrl.notification})
+        $http.post(serverUrl, {notification: {message: pushCtrl.notification}})
           .then(function (response) {
             pushCtrl.sendingState.message = 'Notification sent!';
           })
