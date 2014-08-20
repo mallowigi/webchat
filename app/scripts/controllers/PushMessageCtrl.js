@@ -21,7 +21,7 @@ angular.module('wix.pushServer')
           e.preventDefault();
           pushCtrl.postMessage();
         }
-      }
+      };
 
       pushCtrl.postMessage = function () {
 

@@ -10,6 +10,10 @@ a {
   display: none;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .chat_container {
   -moz-border-radius-topleft: 7px;
   -webkit-border-top-left-radius: 7px;
@@ -106,6 +110,10 @@ a {
   border-radius: 5px;
   background: rgba(252, 252, 252, 0.27);
 }
+.chat_container textarea.bad {
+  border: red 2px solid;
+  background: rgba(252, 0, 0, 0.05);
+}
 .chat_container .counter {
   position: absolute;
   right: 0;
@@ -157,4 +165,13 @@ a {
   margin-left: 17px;
   background: none;
   border: none;
+  cursor: default;
+}
+.chat_container .sending:hover {
+  background: none;
+  color: #828282;
+}
+.chat_container button[disabled] {
+  color: #c5c5c5;
+  background-color: #f3f3f3;
 }

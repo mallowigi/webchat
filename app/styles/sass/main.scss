@@ -12,6 +12,10 @@ a {
   display: none;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .chat_container {
   @include border-top-radius(7px);
   @include box-shadow(rgba(33, 33, 33, 0.4) 0 0 7px);
@@ -91,6 +95,10 @@ a {
     padding: 20px;
     border-radius: 5px;
     background: rgba(252, 252, 252, 0.27);
+    &.bad {
+      border: red 2px solid;
+      background: rgba(252, 0, 0, 0.05);
+    }
   }
   .counter {
     position: absolute;
@@ -134,5 +142,14 @@ a {
     margin-left: 17px;
     background: none;
     border: none;
+    cursor: default;
+    &:hover {
+      background: none;
+      color: #828282;
+    }
+  }
+  button[disabled] {
+    color: #c5c5c5;
+    background-color: #f3f3f3;
   }
 }

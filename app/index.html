@@ -53,25 +53,30 @@
     <section id="push_section" ng-controller="PushMessageCtrl as push" class="view chat_container">
       <!--<span class="close" ng-click="main.isShownForm = false">x</span>-->
 
-      <form id="textarea" name="postNotification" class="ui form" ng-submit="push.postMessage(); main.isShownForm = false">
+      <form id="textarea" name="postNotification" class="ui form" ng-submit="push.postMessage(); postNotification.$setPristine()">
         <h3 class="ui left floated header title">Push Message</h3>
         <span class="ui floated right header counter">{{push.maxChars - push.notification.length}}</span>
         <h5 class="ui floated right header sub_tilte">Please fill the form below</h5>
 
         <div class="field">
           <textarea name="notification" id="notification" cols="30" rows="10" placeholder="Enter your notification message here..."
-                    ng-model="push.notification" max-length-block="push.maxChars" ng-keydown="push.submitOnEnter($event)">
+                    ng-model="push.notification" max-length-block="push.maxChars" ng-keydown="push.submitOnEnter($event)"
+                    ng-class="{'bad': postNotification.notification.$invalid && postNotification.notification.$dirty}"
+                    ng-required="true">
           </textarea>
         </div>
 
         <p class="sending" ng-show="push.sendingState.isSending">{{ push.sendingState.message }}</p>
-        <button class="ui button right floated">Send</button>
+        <p class="sending" ng-show="postNotification.notification.$dirty && postNotification.notification.$error.required">
+          You must enter a message!</p>
+
+        <button type="submit" class="ui button right floated" ng-disabled="postNotification.$invalid">Send</button>
       </form>
 
     </section>
 
     <!--<section id="start_section" ng-hide="main.isShownForm" class="view chat_container">-->
-      <!--<a href="javascript:void(0)" ng-click="main.isShownForm = true"><h3 class="ui left floated header title">Push Message</h3></a>-->
+    <!--<a href="javascript:void(0)" ng-click="main.isShownForm = true"><h3 class="ui left floated header title">Push Message</h3></a>-->
     <!--</section>-->
 
   </main>
