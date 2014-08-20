@@ -6,6 +6,10 @@ a {
   text-decoration: none;
 }
 
+.ng-cloak {
+  display: none;
+}
+
 .chat_container {
   -moz-border-radius-topleft: 7px;
   -webkit-border-top-left-radius: 7px;
@@ -17,11 +21,13 @@ a {
   -moz-box-shadow: rgba(33, 33, 33, 0.4) 0 0 7px;
   box-shadow: rgba(33, 33, 33, 0.4) 0 0 7px;
   background: #ffffff;
-  width: 359px;
-  position: fixed;
-  bottom: 0;
+  width: 559px;
+  margin: auto;
   overflow: hidden;
-  right: 70px;
+  bottom: 0;
+}
+.chat_container form {
+  position: relative;
 }
 .chat_container .close {
   background: #151515;

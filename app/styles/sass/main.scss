@@ -8,15 +8,21 @@ a {
   text-decoration: none;
 }
 
+.ng-cloak {
+  display: none;
+}
+
 .chat_container {
   @include border-top-radius(7px);
   @include box-shadow(rgba(33, 33, 33, 0.4) 0 0 7px);
   background: #ffffff;
-  width: 359px;
-  position: fixed;
-  bottom: 0;
+  width: 559px;
+  margin: auto;
   overflow: hidden;
-  right: 70px;
+  bottom: 0;
+  form {
+    position: relative;
+  }
   .close {
     background: #151515;
     position: absolute;

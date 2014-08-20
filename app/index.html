@@ -50,8 +50,8 @@
 
   <main ng-controller="MainController as main">
 
-    <section id="push_section" ng-controller="PushMessageCtrl as push" ng-show="main.isShownForm" class="view chat_container">
-      <span class="close" ng-click="main.isShownForm = false">x</span>
+    <section id="push_section" ng-controller="PushMessageCtrl as push" class="view chat_container">
+      <!--<span class="close" ng-click="main.isShownForm = false">x</span>-->
 
       <form id="textarea" name="postNotification" class="ui form" ng-submit="push.postMessage(); main.isShownForm = false">
         <h3 class="ui left floated header title">Push Message</h3>
@@ -60,7 +60,7 @@
 
         <div class="field">
           <textarea name="notification" id="notification" cols="30" rows="10" placeholder="Enter your notification message here..."
-                    ng-model="push.notification" max-length-block="push.maxChars">
+                    ng-model="push.notification" max-length-block="push.maxChars" ng-keydown="push.submitOnEnter($event)">
           </textarea>
         </div>
 
@@ -70,9 +70,9 @@
 
     </section>
 
-    <section id="start_section" ng-hide="main.isShownForm" class="view chat_container">
-      <a href="javascript:void(0)" ng-click="main.isShownForm = true"><h3 class="ui left floated header title">Push Message</h3></a>
-    </section>
+    <!--<section id="start_section" ng-hide="main.isShownForm" class="view chat_container">-->
+      <!--<a href="javascript:void(0)" ng-click="main.isShownForm = true"><h3 class="ui left floated header title">Push Message</h3></a>-->
+    <!--</section>-->
 
   </main>
 
