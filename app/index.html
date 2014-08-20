@@ -53,7 +53,7 @@
     <section id="push_section" ng-controller="PushMessageCtrl as push" class="view chat_container">
       <!--<span class="close" ng-click="main.isShownForm = false">x</span>-->
 
-      <form id="textarea" name="postNotification" class="ui form" ng-submit="push.postMessage(); postNotification.$setPristine()">
+      <form id="textarea" name="postNotification" class="ui form" ng-submit="push.postMessage()">
         <h3 class="ui left floated header title">Push Message</h3>
         <span class="ui floated right header counter">{{push.maxChars - push.notification.length}}</span>
         <h5 class="ui floated right header sub_tilte">Please fill the form below</h5>

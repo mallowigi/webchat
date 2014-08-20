@@ -3,8 +3,9 @@ angular.module('wix.pushServer')
     'maxChars',
     'serverUrl',
     '$http',
+    '$scope',
     '$timeout',
-    function (maxChars, serverUrl, $http, $timeout) {
+    function (maxChars, serverUrl, $http, $scope, $timeout) {
       'use strict';
       var pushCtrl = this;
 
@@ -45,6 +46,7 @@ angular.module('wix.pushServer')
         ;
 
         pushCtrl.notification = '';
+        $scope.postNotification.$setPristine()
       };
 
     }])
