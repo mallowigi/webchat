@@ -48,10 +48,11 @@
 
 <body ontouchstart ng-cloak>
 
-    <main>
+    <main ng-controller="MainCtrl as main">
 
-        <section id="push_section" class="view chat_container">
-            <span class="close" ng-click="main.isShownForm = false">x</span>
+        <section id="push_section" class="view chat_container"
+                 ng-repeat="chat in main.chatWindows track by chat.id">
+            <span class="close">x</span>
 
             <form id="textarea" name="postNotification" class="ui form" ng-submit="push.postMessage()">
                 <h3 class="ui left floated header title">Push Message</h3>
@@ -90,6 +91,15 @@
     <!-- endbuild -->
 
     <!-- build:js scripts/app.min.js -->
+    <script src="scripts/common/common.module.js"></script>
+    <script src="scripts/common/guid.js"></script>
+
+    <script src="scripts/chatWindow/chatWindow.module.js"></script>
+    <script src="scripts/chatWindow/ChatWindow.js"></script>
+
+    <script src="scripts/core/core.module.js"></script>
+    <script src="scripts/core/MainCtrl.js"></script>
+
     <script src="scripts/app.js"></script>
     <!-- endbuild -->
 
