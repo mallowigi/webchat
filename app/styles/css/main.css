@@ -21,8 +21,8 @@ a {
   -moz-border-radius-topright: 7px;
   -webkit-border-top-right-radius: 7px;
   border-top-right-radius: 7px;
-  -webkit-box-shadow: rgba(33, 33, 33, 0.4) 0 0 7px;
   -moz-box-shadow: rgba(33, 33, 33, 0.4) 0 0 7px;
+  -webkit-box-shadow: rgba(33, 33, 33, 0.4) 0 0 7px;
   box-shadow: rgba(33, 33, 33, 0.4) 0 0 7px;
   background: #ffffff;
   width: 559px;
@@ -46,17 +46,17 @@ a {
   cursor: pointer;
   text-align: center;
   line-height: 38px;
-  -webkit-transition-property: background;
   -moz-transition-property: background;
   -o-transition-property: background;
+  -webkit-transition-property: background;
   transition-property: background;
-  -webkit-transition-duration: 0.08s;
   -moz-transition-duration: 0.08s;
   -o-transition-duration: 0.08s;
+  -webkit-transition-duration: 0.08s;
   transition-duration: 0.08s;
-  -webkit-transition-timing-function: ease-in;
   -moz-transition-timing-function: ease-in;
   -o-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
 .chat_container .close:hover {
@@ -143,17 +143,17 @@ a {
   margin: 0 17px 16px 0;
   cursor: pointer;
   font-size: 15px;
-  -webkit-transition-property: background;
   -moz-transition-property: background;
   -o-transition-property: background;
+  -webkit-transition-property: background;
   transition-property: background;
-  -webkit-transition-duration: 0.08s;
   -moz-transition-duration: 0.08s;
   -o-transition-duration: 0.08s;
+  -webkit-transition-duration: 0.08s;
   transition-duration: 0.08s;
-  -webkit-transition-timing-function: ease-in;
   -moz-transition-timing-function: ease-in;
   -o-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
 }
 .chat_container button:hover, .chat_container p:hover {

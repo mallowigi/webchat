@@ -1,13 +1,11 @@
-// Generated on 2014-08-17 using generator-angular-bootstrap 0.4.1
-'use strict';
-
 // # Globbing
 // for performance reasons we're only matching one level down:
 // 'test/spec/{,*/}*.js'
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
+  'use strict';
 
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
@@ -20,12 +18,12 @@ module.exports = function(grunt) {
     bower: require('./bower.json'),
     meta: {
       banner: '/**\n' +
-      ' * <%= pkg.name %>\n' +
-      ' * @version v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
-      ' * @link <%= pkg.homepage %>\n' +
-      ' * @author <%= pkg.author.name %> <<%= pkg.author.email %>>\n' +
-      ' * @license MIT License, http://www.opensource.org/licenses/MIT\n' +
-      ' */\n'
+              ' * <%= pkg.name %>\n' +
+              ' * @version v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+              ' * @link <%= pkg.homepage %>\n' +
+              ' * @author <%= pkg.author.name %> <<%= pkg.author.email %>>\n' +
+              ' * @license MIT License, http://www.opensource.org/licenses/MIT\n' +
+              ' */\n'
     },
 
     // Project settings
@@ -38,8 +36,8 @@ module.exports = function(grunt) {
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       js: {
-         files: ['<%= yo.app %>/scripts/{,*/}*.js'],
-         tasks: ['newer:jshint:all']
+        files: ['<%= yo.app %>/scripts/{,*/}*.js'],
+        tasks: ['newer:jshint:all']
       },
       compass: {
         files: ['<%= yo.app %>/styles/sass/{,*/}*.scss'],
@@ -109,7 +107,7 @@ module.exports = function(grunt) {
       options: {
         jshintrc: '.jshintrc',
         reporter: require('jshint-stylish'),
-        force:true
+        force: true
       },
       all: [
         'Gruntfile.js',
@@ -161,8 +159,6 @@ module.exports = function(grunt) {
         exclude: ['bower_components/jquery/jquery.js', 'bower_components/bootstrap/dist/js/bootstrap.js']
       }
     },
-
-
 
     // Renames files for browser caching purposes
     rev: {
@@ -240,7 +236,7 @@ module.exports = function(grunt) {
         root: '<%= yo.app %>'
       }
     },
-    
+
     svgmin: {
       dist: {
         files: [{
@@ -331,7 +327,7 @@ module.exports = function(grunt) {
       ],
       dist: [
         'copy:styles',
-                'svgmin'
+        'svgmin'
       ]
     },
 
@@ -349,8 +345,7 @@ module.exports = function(grunt) {
     }
   });
 
-
-  grunt.registerTask('serve', function(target) {
+  grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
     }
@@ -366,7 +361,7 @@ module.exports = function(grunt) {
     ]);
   });
 
-  grunt.registerTask('server', function(target) {
+  grunt.registerTask('server', function (target) {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
     grunt.task.run(['serve:' + target]);
   });

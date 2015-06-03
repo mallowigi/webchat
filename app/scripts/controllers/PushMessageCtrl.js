@@ -46,7 +46,7 @@ angular.module('wix.pushServer')
         ;
 
         pushCtrl.notification = '';
-        $scope.postNotification.$setPristine()
+        $scope.postNotification.$setPristine();
       };
 
     }])

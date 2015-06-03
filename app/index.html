@@ -1,103 +1,97 @@
 <!doctype html>
 <!--[if lt IE 9]>
-<html class="no-js lt-ie9" lang="en" ng-app="wix.pushServer"> <![endif]-->
+<html class="no-js lt-ie9" lang="en" ng-app="webChat"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js" lang="en" ng-app="wix.pushServer"> <!--<![endif]-->
+<html class="no-js" lang="en" ng-app="webChat"> <!--<![endif]-->
 <head>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Pushserver - Yet another amazing AngularJS app</title>
-  <meta name="description" content="Yet another amazing AngularJS app">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>WebChat</title>
+    <meta name="description" content="WebChat">
 
-  <!--[if lt IE 9]>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-shim.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
-  <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-shim.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
 
-  <!-- Sets initial viewport load and disables zooming  -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <!-- Set a shorter title for iOS6 devices when saved to home screen -->
-  <meta name="apple-mobile-web-app-title" content="Pushserver">
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Set a shorter title for iOS6 devices when saved to home screen -->
+    <meta name="apple-mobile-web-app-title" content="WebChat">
 
-  <!-- Properties for Google+ snippets -->
-  <meta property="og:title" content="Pushserver">
-  <meta property="og:description" content="Yet another amazing AngularJS app">
-  <meta property="og:image" content="https://github.global.ssl.fastly.net/images/modules/logos_page/Octocat.png">
+    <!-- Properties for Google+ snippets -->
+    <meta property="og:title" content="WebChat">
+    <meta property="og:description" content="WebChat">
+    <meta property="og:image" content="https://github.global.ssl.fastly.net/images/modules/logos_page/Octocat.png">
 
-  <!-- Author of this application -->
-  <link rel="author" href="https://github.com/mgcrea">
-  <link rel="icon" href="http://angularjs.org/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="http://angularjs.org/favicon.ico" type="image/x-icon">
+    <!-- Author of this application -->
+    <link rel="author" href="https://github.com/mgcrea">
+    <link rel="icon" href="http://angularjs.org/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="http://angularjs.org/favicon.ico" type="image/x-icon">
 
-  <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/css/semantic.min.css"/> -->
+    <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/css/semantic.min.css"/> -->
 
-  <!-- build:css styles/components.min.css -->
-  <!-- bower:css -->
-  <!-- endbower -->
-  <!-- endbuild -->
+    <!-- build:css styles/components.min.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
 
-  <!-- build:css(.tmp) styles/main.min.css -->
-  <link rel="stylesheet" href="styles/css/main.css">
-  <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.min.css -->
+    <link rel="stylesheet" href="styles/css/main.css">
+    <!-- endbuild -->
 
 </head>
 
 <body ontouchstart ng-cloak>
 
-  <main ng-controller="MainController as main">
+    <main>
 
-    <section id="push_section" ng-controller="PushMessageCtrl as push" class="view chat_container">
-      <!--<span class="close" ng-click="main.isShownForm = false">x</span>-->
+        <section id="push_section" class="view chat_container">
+            <span class="close" ng-click="main.isShownForm = false">x</span>
 
-      <form id="textarea" name="postNotification" class="ui form" ng-submit="push.postMessage()">
-        <h3 class="ui left floated header title">Push Message</h3>
-        <span class="ui floated right header counter">{{push.maxChars - push.notification.length}}</span>
-        <h5 class="ui floated right header sub_tilte">Please fill the form below</h5>
+            <form id="textarea" name="postNotification" class="ui form" ng-submit="push.postMessage()">
+                <h3 class="ui left floated header title">Push Message</h3>
+                <span class="ui floated right header counter">{{push.maxChars - push.notification.length}}</span>
+                <h5 class="ui floated right header sub_tilte">Please fill the form below</h5>
 
-        <div class="field">
+                <div class="field">
           <textarea name="notification" id="notification" cols="30" rows="10" placeholder="Enter your notification message here..."
                     ng-model="push.notification" max-length-block="push.maxChars" ng-keydown="push.submitOnEnter($event)"
                     ng-class="{'bad': postNotification.notification.$invalid && postNotification.notification.$dirty}"
                     ng-required="true">
           </textarea>
-        </div>
+                </div>
 
-        <p class="sending" ng-show="push.sendingState.isSending">{{ push.sendingState.message }}</p>
-        <p class="sending" ng-show="postNotification.notification.$dirty && postNotification.notification.$error.required">
-          You must enter a message!</p>
+                <p class="sending" ng-show="push.sendingState.isSending">{{ push.sendingState.message }}</p>
+                <p class="sending" ng-show="postNotification.notification.$dirty && postNotification.notification.$error.required">
+                    You must enter a message!</p>
 
-        <button type="submit" class="ui button right floated" ng-disabled="postNotification.$invalid">Send</button>
-      </form>
+                <button type="submit" class="ui button right floated" ng-disabled="postNotification.$invalid">Send</button>
+            </form>
 
-    </section>
+        </section>
 
-    <!--<section id="start_section" ng-hide="main.isShownForm" class="view chat_container">-->
-    <!--<a href="javascript:void(0)" ng-click="main.isShownForm = true"><h3 class="ui left floated header title">Push Message</h3></a>-->
-    <!--</section>-->
+        <!--<section id="start_section" ng-hide="main.isShownForm" class="view chat_container">-->
+        <!--<a href="javascript:void(0)" ng-click="main.isShownForm = true"><h3 class="ui left floated header title">Push Message</h3></a>-->
+        <!--</section>-->
 
-  </main>
+    </main>
 
-  <script type="text/javascript" src="//sslstatic.wix.com/services/js-sdk/1.35.0/js/Wix.js"></script>
-  <!-- build:js scripts/components.min.js -->
-  <!-- bower:js -->
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.js"></script>
-  <!-- endbower -->
+    <!-- build:js scripts/components.min.js -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <!-- endbower -->
 
-  <!-- endbuild -->
+    <!-- endbuild -->
 
-  <!-- build:js scripts/app.min.js -->
-  <script src="scripts/app.js"></script>
-  <script src="scripts/controllers/PushMessageCtrl.js"></script>
-  <script src="scripts/controllers/MainCtrl.js"></script>
-
-  <script src="scripts/directives/maxLengthBlock.js"></script>
-
-  <!-- endbuild -->
+    <!-- build:js scripts/app.min.js -->
+    <script src="scripts/app.js"></script>
+    <!-- endbuild -->
 
 </body>
 

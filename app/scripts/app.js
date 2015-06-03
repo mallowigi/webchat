@@ -1,5 +1,3 @@
-angular.module('wix.pushServer', [
+angular.module('webChat', [
   'ngAnimate'
-])
-  .constant('maxChars', 224)
-  .constant('serverUrl', 'http://wix.codeoasis.com:3002/notifications');
+]);
