@@ -51,32 +51,65 @@
     <main ng-controller="MainCtrl as main">
 
         <chat-window class="view chat_window"
-                 ng-repeat="chat in main.chatWindows track by chat.id">
+                     ng-repeat="chat in main.chatWindows track by chat.id">
 
             <header class="chat_caption">
                 Chat Window #
                 <span class="btn_close">x</span>
             </header>
 
-            <!--<form id="textarea" name="postNotification" class="ui form" ng-submit="push.postMessage()">-->
-                <!--<h3 class="ui left floated header title">Push Message</h3>-->
-                <!--<span class="ui floated right header counter">{{push.maxChars - push.notification.length}}</span>-->
-                <!--<h5 class="ui floated right header sub_tilte">Please fill the form below</h5>-->
+            <section class="chat_messages">
+                <ul>
+                    <li class="message">
+                        <aside class="col message_author">Arik</aside>
+                        <div class="col messages">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci at consequuntur culpa cum doloremque
+                            facilis id laboriosam magni mollitia nam neque nesciunt, nobis nostrum quae rem repellat temporibus veritatis!
+                        </div>
+                    </li>
+                    <li class="message">
+                        <aside class="col message_author">Arik</aside>
+                        <div class="col messages">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci at consequuntur culpa cum doloremque
+                            facilis id laboriosam magni mollitia nam neque nesciunt, nobis nostrum quae rem repellat temporibus veritatis!
+                        </div>
+                    </li>
+                    <li class="message">
+                        <aside class="col message_author">Arik</aside>
+                        <div class="col messages">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci at consequuntur culpa cum doloremque
+                            facilis id laboriosam magni mollitia nam neque nesciunt, nobis nostrum quae rem repellat temporibus veritatis!
+                        </div>
+                    </li>
+                    <li class="message">
+                        <aside class="col message_author">Arik</aside>
+                        <div class="col messages">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci at consequuntur culpa cum doloremque
+                            facilis id laboriosam magni mollitia nam neque nesciunt, nobis nostrum quae rem repellat temporibus veritatis!
+                        </div>
+                    </li>
+                </ul>
+            </section>
 
-                <!--<div class="field">-->
-          <!--<textarea name="notification" id="notification" cols="30" rows="10" placeholder="Enter your notification message here..."-->
-                    <!--ng-model="push.notification" max-length-block="push.maxChars" ng-keydown="push.submitOnEnter($event)"-->
-                    <!--ng-class="{'bad': postNotification.notification.$invalid && postNotification.notification.$dirty}"-->
-                    <!--ng-required="true">-->
-          <!--</textarea>-->
-                <!--</div>-->
+            <footer class="chat_post">
+                <form>
+                    <!--<span class="ui floated right header counter">{{push.maxChars - push.notification.length}}</span>-->
 
-                <!--<p class="sending" ng-show="push.sendingState.isSending">{{ push.sendingState.message }}</p>-->
-                <!--<p class="sending" ng-show="postNotification.notification.$dirty && postNotification.notification.$error.required">-->
-                    <!--You must enter a message!</p>-->
+          <textarea name="notification"
+                    id="notification"
+                    cols="30" rows="1" placeholder="Enter your message here..."
+                    ng-model="push.notification" max-length-block="push.maxChars" ng-keydown="push.submitOnEnter($event)"
+                    ng-class="{'bad': postNotification.notification.$invalid && postNotification.notification.$dirty}">
+          </textarea>
 
-                <!--<button type="submit" class="ui button right floated" ng-disabled="postNotification.$invalid">Send</button>-->
-            <!--</form>-->
+                    <!--<p class="sending" ng-show="push.sendingState.isSending">{{ push.sendingState.message }}</p>-->
+                    <!--<p class="sending" ng-show="postNotification.notification.$dirty && postNotification.notification.$error.required">-->
+                        <!--You must enter a message!</p>-->
+
+                    <button type="submit" class="ui button right floated">Send</button>
+                </form>
+
+            </footer>
 
         </chat-window>
 
