@@ -12,15 +12,15 @@ angular.module('webChat.chatWindow')
 
       controller: [
         '$scope',
+        '$window',
         'events',
-        'chance',
         function chatWindowBoxCtrl (
           $scope,
-          events,
-          chance
+          $window,
+          events
         ) {
           // The chat messenger
-          this.author = chance.first();
+          this.author = $window.frameElement.id;
 
           // The contents of the message tp post
           this.message = '';

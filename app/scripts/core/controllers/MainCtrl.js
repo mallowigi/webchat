@@ -17,6 +17,10 @@ angular.module('webChat.core')
       this.addNewWindow = function addNewWindow () {
         this.chatWindows.push(new ChatWindow());
       };
+
+      this.closeWindow = function closeWindow (index) {
+        this.chatWindows.splice(index, 1);
+      }
     }
   ]
 );

@@ -41,8 +41,8 @@
 
         <div class="chat_wrapper" ng-repeat="chat in main.chatWindows" draggable="true" id="{{::chat.id}}" ng-style="::chat.initPos">
             <header class="chat_caption">
-                Chat Window {{ ::chat.name }}
-                <span class="btn_close">x</span>
+                <b>{{ ::chat.name }}</b>
+                <span class="btn_close" ng-click="main.closeWindow($index)">x</span>
             </header>
 
             <iframe src="chat.html" id="{{ ::chat.name }}" frameborder="0" seamless width="359" height="450" scrolling="no"></iframe>
