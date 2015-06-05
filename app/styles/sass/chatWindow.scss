@@ -7,37 +7,8 @@
 .chat_window {
   display: inline-block;
   overflow: hidden;
+  width: 100%;
 }
-
-//// X close button
-//.btn_close {
-//  background: $closeButtonBg;
-//  color: $closeButtonColor;
-//  position: absolute;
-//  right: 0px;
-//  top: 0px;
-//  z-index: 9;
-//  width: $closeButtonSize;
-//  height: 100%;
-//  display: inline-block;
-//  font: 25px Andale Mono, monospace;
-//  text-align: center;
-//  cursor: pointer;
-//  line-height: 38px;
-//
-//  &:hover {
-//    background: lighten($closeButtonBg, 10%);
-//  }
-//}
-//
-//.chat_caption {
-//  background: $chatCaptionBg;
-//  border-bottom: 1px solid $chatCaptionBg;
-//  color: $chatCaptionColor;
-//  margin: 0;
-//  padding: $boxPadding;
-//  position: relative;
-//}
 
 // The window containing the messages
 .chat_messages {
@@ -85,12 +56,12 @@
     position: relative;
   }
 
-  textarea {
+  input {
     border: 1px solid $postBorderColor;
-    width: 79%;
+    width: 77%;
     height: 100%;
     //margin: 17px 15px 15px;
-    //padding: 20px;
+    padding: 0 5px;
     border-radius: 5px;
     background: rgba(252, 252, 252, 0.27);
     &.bad {

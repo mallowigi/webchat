@@ -9,79 +9,54 @@
     <!-- endbuild -->
 </head>
 <body ng-app="webChat" drag-n-drop="">
-    <chat-window class="view chat_window">
 
+    <!--  I am making a directive -->
+    <chat-window-box class="view chat_window"></chat-window-box>
+
+    <!-- The template for the chat window -->
+    <script type="text/ng-template" id="chatWindowBox">
         <section class="chat_messages">
             <ul>
-                <li class="message">
-                    <aside class="col message_author">Arik</aside>
+                <li class="message" ng-repeat="message in chat.messages">
+                    <aside class="col message_author">{{::message.author}}</aside>
                     <div class="col messages">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci at consequuntur culpa cum doloremque
-                        facilis id laboriosam magni mollitia nam neque nesciunt, nobis nostrum quae rem repellat temporibus veritatis!
+                        {{ ::message.contents }}
                     </div>
                 </li>
-                <li class="message">
-                    <aside class="col message_author">Arik</aside>
-                    <div class="col messages">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci at consequuntur culpa cum doloremque
-                        facilis id laboriosam magni mollitia nam neque nesciunt, nobis nostrum quae rem repellat temporibus veritatis!
-                    </div>
-                </li>
-                <li class="message">
-                    <aside class="col message_author">Arik</aside>
-                    <div class="col messages">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci at consequuntur culpa cum doloremque
-                        facilis id laboriosam magni mollitia nam neque nesciunt, nobis nostrum quae rem repellat temporibus veritatis!
-                    </div>
-                </li>
-                <li class="message">
-                    <aside class="col message_author">Arik</aside>
-                    <div class="col messages">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci at consequuntur culpa cum doloremque
-                        facilis id laboriosam magni mollitia nam neque nesciunt, nobis nostrum quae rem repellat temporibus veritatis!
-                    </div>
-                </li>
+
             </ul>
         </section>
 
         <footer class="chat_post">
-            <form>
-                <!--<span class="ui floated right header counter">{{push.maxChars - push.notification.length}}</span>-->
+            <form ng-submit="chat.postMessage()">
 
-          <textarea name="notification"
-                    id="notification"
-                    cols="30" rows="1" placeholder="Enter your message here..."
-                    ng-model="push.notification" max-length-block="push.maxChars" ng-keydown="push.submitOnEnter($event)"
-                    ng-class="{'bad': postNotification.notification.$invalid && postNotification.notification.$dirty}">
-          </textarea>
-
-                <!--<p class="sending" ng-show="push.sendingState.isSending">{{ push.sendingState.message }}</p>-->
-                <!--<p class="sending" ng-show="postNotification.notification.$dirty && postNotification.notification.$error.required">-->
-                <!--You must enter a message!</p>-->
-
+                <input type="text"
+                       name="message"
+                       id="message"
+                       ng-model="chat.message"
+                       placeholder="Enter your message here...">
                 <button type="submit" class="ui button right floated">Send</button>
             </form>
 
         </footer>
-
-    </chat-window>
+    </script>
 
     <!-- build:js scripts/components.min.js -->
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/chance/chance.js"></script>
     <!-- endbower -->
 
     <!-- endbuild -->
 
     <!-- build:js scripts/app.min.js -->
     <script src="scripts/common/common.module.js"></script>
-    <script src="scripts/common/guid.js"></script>
     <script src="scripts/common/dragNDrop.js"></script>
-
 
     <script src="scripts/chatWindow/chatWindow.module.js"></script>
     <script src="scripts/chatWindow/ChatWindow.js"></script>
+    <script src="scripts/chatWindow/chatWindowBox.js"></script>
 
     <script src="scripts/core/core.module.js"></script>
     <script src="scripts/core/MainCtrl.js"></script>
