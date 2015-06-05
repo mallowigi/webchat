@@ -1,19 +1,11 @@
 <!doctype html>
-<!--[if lt IE 9]>
-<html class="no-js lt-ie9" lang="en" ng-app="webChat"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en" ng-app="webChat"> <!--<![endif]-->
+<html class="no-js" lang="en" ng-app="webChat">
 <head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>WebChat</title>
     <meta name="description" content="WebChat">
-
-    <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-shim.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
-    <![endif]-->
 
     <!-- Sets initial viewport load and disables zooming  -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -27,13 +19,6 @@
     <meta property="og:title" content="WebChat">
     <meta property="og:description" content="WebChat">
     <meta property="og:image" content="https://github.global.ssl.fastly.net/images/modules/logos_page/Octocat.png">
-
-    <!-- Author of this application -->
-    <link rel="author" href="https://github.com/mgcrea">
-    <link rel="icon" href="http://angularjs.org/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="http://angularjs.org/favicon.ico" type="image/x-icon">
-
-    <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/css/semantic.min.css"/> -->
 
     <!-- build:css styles/components.min.css -->
     <!-- bower:css -->
@@ -50,72 +35,7 @@
 
     <main ng-controller="MainCtrl as main">
 
-        <chat-window class="view chat_window"
-                     ng-repeat="chat in main.chatWindows track by chat.id">
-
-            <header class="chat_caption">
-                Chat Window #
-                <span class="btn_close">x</span>
-            </header>
-
-            <section class="chat_messages">
-                <ul>
-                    <li class="message">
-                        <aside class="col message_author">Arik</aside>
-                        <div class="col messages">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci at consequuntur culpa cum doloremque
-                            facilis id laboriosam magni mollitia nam neque nesciunt, nobis nostrum quae rem repellat temporibus veritatis!
-                        </div>
-                    </li>
-                    <li class="message">
-                        <aside class="col message_author">Arik</aside>
-                        <div class="col messages">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci at consequuntur culpa cum doloremque
-                            facilis id laboriosam magni mollitia nam neque nesciunt, nobis nostrum quae rem repellat temporibus veritatis!
-                        </div>
-                    </li>
-                    <li class="message">
-                        <aside class="col message_author">Arik</aside>
-                        <div class="col messages">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci at consequuntur culpa cum doloremque
-                            facilis id laboriosam magni mollitia nam neque nesciunt, nobis nostrum quae rem repellat temporibus veritatis!
-                        </div>
-                    </li>
-                    <li class="message">
-                        <aside class="col message_author">Arik</aside>
-                        <div class="col messages">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci at consequuntur culpa cum doloremque
-                            facilis id laboriosam magni mollitia nam neque nesciunt, nobis nostrum quae rem repellat temporibus veritatis!
-                        </div>
-                    </li>
-                </ul>
-            </section>
-
-            <footer class="chat_post">
-                <form>
-                    <!--<span class="ui floated right header counter">{{push.maxChars - push.notification.length}}</span>-->
-
-          <textarea name="notification"
-                    id="notification"
-                    cols="30" rows="1" placeholder="Enter your message here..."
-                    ng-model="push.notification" max-length-block="push.maxChars" ng-keydown="push.submitOnEnter($event)"
-                    ng-class="{'bad': postNotification.notification.$invalid && postNotification.notification.$dirty}">
-          </textarea>
-
-                    <!--<p class="sending" ng-show="push.sendingState.isSending">{{ push.sendingState.message }}</p>-->
-                    <!--<p class="sending" ng-show="postNotification.notification.$dirty && postNotification.notification.$error.required">-->
-                        <!--You must enter a message!</p>-->
-
-                    <button type="submit" class="ui button right floated">Send</button>
-                </form>
-
-            </footer>
-
-        </chat-window>
-
-        <!--<section id="start_section" ng-hide="main.isShownForm" class="view chat_container">-->
-        <!--<a href="javascript:void(0)" ng-click="main.isShownForm = true"><h3 class="ui left floated header title">Push Message</h3></a>-->
-        <!--</section>-->
+        <button ng-click="main.addNewWindow()">+</button>
 
     </main>
 
