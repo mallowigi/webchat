@@ -1,6 +1,11 @@
 angular.module('webChat.core')
-  .controller('MainCtrl', ['$scope', '$window', '$timeout', 'ChatWindow',
-    function MainCtrl ($scope, $window, $timeout, ChatWindow) {
+  .controller('MainCtrl', [
+    '$window',
+    'ChatWindow',
+    function MainCtrl (
+      $window,
+      ChatWindow
+    ) {
       'use strict';
 
       // Manage the chat windows
@@ -12,12 +17,6 @@ angular.module('webChat.core')
       this.addNewWindow = function addNewWindow () {
         this.chatWindows.push(new ChatWindow());
       };
-
-      // TODO Remove this use the + button instead
-      $timeout(function init(){
-        this.addNewWindow();
-      }.bind(this));
-
     }
   ]
 );

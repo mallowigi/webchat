@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles/css/chatWindow.css">
     <!-- endbuild -->
 </head>
-<body ng-app="webChat" drag-n-drop="">
+<body ng-app="webChat" drag-n-drop>
 
     <!--  I am making a directive -->
     <chat-window-box class="view chat_window"></chat-window-box>
@@ -52,16 +52,19 @@
 
     <!-- build:js scripts/app.min.js -->
     <script src="scripts/common/common.module.js"></script>
-    <script src="scripts/common/dragNDrop.js"></script>
+    <script src="scripts/common/constants/events.js"></script>
+    <script src="scripts/common/services/chance.js"></script>
+    <script src="scripts/common/directives/dragNDrop.js"></script>
 
     <script src="scripts/chatWindow/chatWindow.module.js"></script>
-    <script src="scripts/chatWindow/ChatWindow.js"></script>
-    <script src="scripts/chatWindow/chatWindowBox.js"></script>
+    <script src="scripts/chatWindow/models/ChatWindow.js"></script>
+    <script src="scripts/chatWindow/directives/chatWindowBox.js"></script>
 
     <script src="scripts/core/core.module.js"></script>
-    <script src="scripts/core/MainCtrl.js"></script>
+    <script src="scripts/core/controllers/MainCtrl.js"></script>
 
     <script src="scripts/app.js"></script>
+    <script src="scripts/addPostMessageListeners.js"></script>
     <!-- endbuild -->
 
 </body>

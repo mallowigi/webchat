@@ -2,7 +2,8 @@
  * Created by eliorb on 03/06/2015.
  */
 angular.module('webChat.chatWindow')
-  .service('ChatWindow', [function () {
+  .service('ChatWindow', ['chance', function ChatWindowService (chance) {
+    "use strict";
 
     /**
      * Class ChatWindow
@@ -10,7 +11,7 @@ angular.module('webChat.chatWindow')
      */
     function ChatWindow () {
       this.id = chance.guid();
-      this.name = chance.hashtag(); // Todo angularify chance
+      this.name = chance.channel();
     }
 
     return ChatWindow;
