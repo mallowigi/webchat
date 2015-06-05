@@ -5,13 +5,12 @@ angular.module('webChat', [
   function ($window, $rootScope) {
 
     // When a postMessage event is received, capture the domain and the window sender, and send it to the top if from an iframe
-    $rootScope.$on('webChat:postMessage', function (event, message, domain) {
-      if (!domain) {
-        domain = "*";
-      }
+    $rootScope.$on('webChat:postMessage', function (event, message) {
+      var frames = Array.prototype.slice.call($window.parent.frames);
 
-      var sender = $rootScope.sender || $window.parent;
-      return sender.postMessage(message, domain);
+      frames.forEach(function (iframe) {
+        iframe.postMessage(message, '*');
+      });
     });
 
     // When receiving a message
@@ -23,7 +22,7 @@ angular.module('webChat', [
       if (event && event.data) {
         // Set sender from the source
         $rootScope.sender = event.source;
-        response = JSON.parse(event.data);
+        response = event.data;
 
         // Broadcast event
         $rootScope.$broadcast('webChat:receiveMessage', response);
