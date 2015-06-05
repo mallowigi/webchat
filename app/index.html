@@ -39,7 +39,7 @@
 
     <main ng-controller="MainCtrl as main">
 
-        <div class="chat_wrapper" ng-repeat="chat in main.chatWindows" draggable="true" id="{{chat.id}}">
+        <div class="chat_wrapper" ng-repeat="chat in main.chatWindows" draggable="true" id="{{::chat.id}}" ng-style="::chat.initPos">
             <header class="chat_caption">
                 Chat Window {{ ::chat.name }}
                 <span class="btn_close">x</span>

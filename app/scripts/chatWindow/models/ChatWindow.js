@@ -12,6 +12,10 @@ angular.module('webChat.chatWindow')
     function ChatWindow () {
       this.id = chance.guid();
       this.name = chance.channel();
+      this.initPos = {
+        'left': chance.natural({min:0, max: 800}) + 'px',
+        'top': chance.natural({min:0, max: 600}) + 'px'
+      }
     }
 
     return ChatWindow;
