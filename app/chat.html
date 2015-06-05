@@ -8,9 +8,8 @@
     <link rel="stylesheet" href="styles/css/chatWindow.css">
     <!-- endbuild -->
 </head>
-<body>
-    <chat-window class="view chat_window"
-                 ng-repeat="chat in main.chatWindows track by chat.id">
+<body ng-app="webChat" drag-n-drop="">
+    <chat-window class="view chat_window">
 
         <section class="chat_messages">
             <ul>
@@ -78,6 +77,8 @@
     <!-- build:js scripts/app.min.js -->
     <script src="scripts/common/common.module.js"></script>
     <script src="scripts/common/guid.js"></script>
+    <script src="scripts/common/dragNDrop.js"></script>
+
 
     <script src="scripts/chatWindow/chatWindow.module.js"></script>
     <script src="scripts/chatWindow/ChatWindow.js"></script>
