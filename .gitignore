@@ -39,7 +39,7 @@ com_crashlytics_export_strings.xml
 
 
 ### Bower ###
-bower_components
+#bower_components
 
 
 ### Node ###
@@ -74,6 +74,5 @@ node_modules
 
 .tmp
 
-dist
 
 styles/css

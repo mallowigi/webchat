@@ -1,0 +1,24 @@
+<!DOCTYPE html><html><head lang="en"><meta charset="UTF-8"><title></title><link rel="stylesheet" href="styles/9d60c9f6.chatWindow.min.css"><body ng-app="webChat" drag-n-drop><!--  I am making a directive --><chat-window-box class="view chat_window"></chat-window-box><!-- The template for the chat window --><script type="text/ng-template" id="chatWindowBox"><section class="chat_messages">
+            <ul>
+                <li class="message" ng-repeat="message in chat.messages">
+                    <aside class="col message_author">{{::message.author}}</aside>
+                    <div class="col messages">
+                        {{ ::message.contents }}
+                    </div>
+                </li>
+
+            </ul>
+        </section>
+
+        <footer class="chat_post">
+            <form ng-submit="chat.postMessage()">
+
+                <input type="text"
+                       name="message"
+                       id="message"
+                       ng-model="chat.message"
+                       placeholder="Enter your message here...">
+                <button type="submit" class="ui button right floated">Send</button>
+            </form>
+
+        </footer></script><script src="scripts/733e738f.components.min.js"></script><script src="scripts/71fd5897.chatWindow.min.js"></script>
