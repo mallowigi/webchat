@@ -1,19 +1,43 @@
 @import "compass/css3";
 @import "vars";
 @import "mixins";
-
 @import "core/general";
 
 .btn_new_window {
-  position: absolute;
-  top: 0;
-  right: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+
+  &.btn_fixed {
+    position: fixed;
+    bottom: 45px;
+    right: 25px;
+    z-index: 200;
+    outline:none;
+  }
+
+  .btn_floating {
+    background: $chatCaptionBg;
+    display: inline-block;
+    color: #FFF;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    width: $plusButtonSize;
+    height: $plusButtonSize;
+    line-height: $plusButtonSize;
+    font-size: 2em;
+    padding: 0;
+    border-radius: 50%;
+    transition: .3s;
+    cursor: pointer;
+    vertical-align: middle;
+  }
 }
 
 .chat_wrapper {
   display: inline-block;
   position: absolute;
-
   border-radius: 7px;
   @include box-shadow(rgba(33, 33, 33, 0.4) 0 0 7px);
   background: $chatWindowBg;

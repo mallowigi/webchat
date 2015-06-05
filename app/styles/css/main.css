@@ -28,9 +28,33 @@ ul {
 }
 
 .btn_new_window {
-  position: absolute;
-  top: 0;
-  right: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+.btn_new_window.btn_fixed {
+  position: fixed;
+  bottom: 45px;
+  right: 25px;
+  z-index: 200;
+  outline: none;
+}
+.btn_new_window .btn_floating {
+  background: #b06894;
+  display: inline-block;
+  color: #FFF;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 2em;
+  padding: 0;
+  border-radius: 50%;
+  transition: .3s;
+  cursor: pointer;
+  vertical-align: middle;
 }
 
 .chat_wrapper {
