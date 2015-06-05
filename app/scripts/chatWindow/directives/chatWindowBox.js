@@ -20,7 +20,7 @@ angular.module('webChat.chatWindow')
           events
         ) {
           // The chat messenger
-          this.author = $window.frameElement.id;
+          this.author = $window.name;
 
           // The contents of the message tp post
           this.message = '';

@@ -45,7 +45,10 @@
                 <span class="btn_close" ng-click="main.closeWindow($index)">x</span>
             </header>
 
-            <iframe src="chat.html" id="{{ ::chat.name }}" frameborder="0" seamless width="359" height="450" scrolling="no"></iframe>
+            <!--<iframe src="chat.html" id="{{ ::chat.name }}" frameborder="0" seamless width="359" height="450"-->
+                    <!--scrolling="no"></iframe>-->
+            <!-- I'm using a directive to defer the compilation of the iframe, so it can accept dynamic name -->
+            <chat-iframe name="{{ ::chat.name }}"></chat-iframe>
         </div>
 
         <button ng-click="main.addNewWindow()" class="btn_new_window btn_fixed">
@@ -74,6 +77,7 @@
     <script src="scripts/chatWindow/directives/chatWindowBox.js"></script>
 
     <script src="scripts/core/core.module.js"></script>
+    <script src="scripts/core/chatIframe.js"></script>
     <script src="scripts/core/controllers/MainCtrl.js"></script>
 
     <script src="scripts/app.js"></script>
