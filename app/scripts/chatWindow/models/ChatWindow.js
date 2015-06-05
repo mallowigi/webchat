@@ -3,7 +3,7 @@
  */
 angular.module('webChat.chatWindow')
   .service('ChatWindow', ['chance', function ChatWindowService (chance) {
-    "use strict";
+    'use strict';
 
     /**
      * Class ChatWindow
