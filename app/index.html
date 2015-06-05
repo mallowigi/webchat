@@ -33,9 +33,28 @@
 
 <body ontouchstart ng-cloak>
 
-    <main ng-controller="MainCtrl as main">
+    <script>
+        function drag(event) {
 
-        <button ng-click="main.addNewWindow()">+</button>
+        }
+
+        function drop(event) {
+            console.log(event);
+        }
+    </script>
+
+    <main ng-controller="MainCtrl as main" ondrop="drop(event)">
+
+        <div class="chat_wrapper" ng-repeat="chat in main.chatWindows" draggable="true" ondragstart="drag(event)">
+            <header class="chat_caption">
+                Chat Window #
+                <span class="btn_close">x</span>
+            </header>
+
+            <iframe src="chat.html" frameborder="0" seamless width="359" height="450" scrolling="no"></iframe>
+        </div>
+
+        <button ng-click="main.addNewWindow()" class="btn_new_window">+</button>
 
     </main>
 

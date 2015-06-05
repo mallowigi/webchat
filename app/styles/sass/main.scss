@@ -3,3 +3,52 @@
 @import "mixins";
 
 @import "core/general";
+
+.btn_new_window {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.chat_wrapper {
+  display: inline-block;
+  position: absolute;
+
+  border-radius: 7px;
+  @include box-shadow(rgba(33, 33, 33, 0.4) 0 0 7px);
+  background: $chatWindowBg;
+  width: $chatWindowWidth;
+  height: $chatWindowHeight;
+  margin: auto;
+  overflow: hidden;
+}
+
+// X close button
+.btn_close {
+  background: $closeButtonBg;
+  color: $closeButtonColor;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  z-index: 9;
+  width: $closeButtonSize;
+  height: 100%;
+  display: inline-block;
+  font: 25px Andale Mono, monospace;
+  text-align: center;
+  cursor: pointer;
+  line-height: 38px;
+
+  &:hover {
+    background: lighten($closeButtonBg, 10%);
+  }
+}
+
+.chat_caption {
+  background: $chatCaptionBg;
+  border-bottom: 1px solid $chatCaptionBg;
+  color: $chatCaptionColor;
+  margin: 0;
+  padding: $boxPadding;
+  position: relative;
+}
