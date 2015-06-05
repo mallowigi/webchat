@@ -8,7 +8,7 @@ angular.module('webChat.chatWindow')
       // Look for the ngTemplate in chat.html, so I don't need to do an ajax request to fetch the partial
       templateUrl: 'chatWindowBox',
 
-      controller: [function () {
+      controller: ['$scope', function ($scope) {
         // The chat messenger
         this.author = chance.first();
 
@@ -19,13 +19,24 @@ angular.module('webChat.chatWindow')
         this.messages = [];
 
         this.postMessage = function postMessage () {
-          this.messages.push({
+          var newMessage = {
             author: this.author,
             contents: this.message
-          });
+          };
 
           this.message = '';
-        }
+
+          $scope.$emit('webChat:postMessage', JSON.stringify(newMessage));
+        };
+
+        // When receiving a message
+
+        $scope.$on('webChat:receiveMessage', function (event, data) {
+          console.log('e');
+          this.messages.push(angular.fromJson(data));
+          $scope.$digest();
+        }.bind(this));
+
       }],
       controllerAs: 'chat',
       bindToController: true
