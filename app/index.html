@@ -29,23 +29,17 @@
     <link rel="stylesheet" href="styles/css/main.css">
     <!-- endbuild -->
 
-</head>
-
-<body ontouchstart ng-cloak>
-
     <script>
-        function drag(event) {
 
-        }
-
-        function drop(event) {
-            console.log(event);
-        }
     </script>
 
-    <main ng-controller="MainCtrl as main" ondrop="drop(event)">
+</head>
 
-        <div class="chat_wrapper" ng-repeat="chat in main.chatWindows" draggable="true" ondragstart="drag(event)">
+<body ontouchstart ng-cloak drag-n-drop>
+
+    <main ng-controller="MainCtrl as main">
+
+        <div class="chat_wrapper" ng-repeat="chat in main.chatWindows" draggable="true" id="{{chat.id}}">
             <header class="chat_caption">
                 Chat Window #
                 <span class="btn_close">x</span>
@@ -69,6 +63,7 @@
     <!-- build:js scripts/app.min.js -->
     <script src="scripts/common/common.module.js"></script>
     <script src="scripts/common/guid.js"></script>
+    <script src="scripts/common/dragNDrop.js"></script>
 
     <script src="scripts/chatWindow/chatWindow.module.js"></script>
     <script src="scripts/chatWindow/ChatWindow.js"></script>
